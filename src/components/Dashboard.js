@@ -5,42 +5,17 @@ import { Link, useLocation } from "react-router-dom";
 
 const Dashboard = () => {
     
-    const userData = [
+    const sampleData =[
         {
-            name: "akshita",
-            age: 22,
-            dob: 324,
-        },
-    
-        {
-            name: "rishika",
-            age: 22,
-            dob: 32,
-    
+            name:"akshita"
         },
         {
-            name: "rishika 2",
-            age: 22,
-            dob: 43,
-        },
-    ];
-    const leadData = [
-        {
-            name: "lead akshita",
-            age: 22,
-            dob: 324,
+            name:"akshita"
         },
         {
-            name: "lead rishika",
-            age: 22,
-            dob: 32,
-        },
-        {
-            name: "lead rishika 2",
-            age: 22,
-            dob: 43,
-        },
-    ];
+            name:"akshita"
+        }
+    ]
     const location = useLocation();
     
     const isUserActive = location.pathname !== "/lead";
@@ -91,7 +66,7 @@ const Dashboard = () => {
                         role="tabpanel"
                         aria-labelledby="home-tab"
                     >
-                        <UserBoard data={userData} />
+                        <UserBoard />
                     </div>
                     <div
                         className={`tab-pane fade ${isLeadActive ? 'show active' : ''}`}
@@ -99,7 +74,7 @@ const Dashboard = () => {
                         role="tabpanel"
                         aria-labelledby="profile-tab"
                     >
-                        <LeadBoard data={leadData} />
+                        <LeadBoard data={sampleData}/>
                     </div>
                 </div>
             </div>

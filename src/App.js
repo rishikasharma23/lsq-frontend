@@ -4,6 +4,7 @@ import UserForm from './components/UserForm';
 import Dashboard from './components/Dashboard';
 import UserDetails from './components/UserDetails';
 import LeadDetails from './components/LeadDetails';
+import EditUserForm from './components/EditUserForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/user/create" element={<UserForm />} />
           <Route path="/lead/:id" element={<LeadDetails />} />
           <Route path="/lead/create" element={<LeadForm />} />
+          <Route path="/user/id/edit" element={<EditUserForm/>} />
         </Routes>
       </Router>
     </div>

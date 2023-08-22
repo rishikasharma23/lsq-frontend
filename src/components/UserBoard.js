@@ -1,26 +1,24 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
-const UserBoard = ({data}) => {
-//   const userData = [
-//     {
-//         name: "akshita",
-//         age: 22,
-//         dob: 324,
-//     },
+const UserBoard = () => {
 
-//     {
-//         name: "rishika",
-//         age: 22,
-//         dob: 32,
+  const [data, setData]= useState([]);
 
-//     },
-//     {
-//         name: "rishika 2",
-//         age: 22,
-//         dob: 43,
-//     },
-// ];
+  useEffect(()=>{
+    axios.get('http://localhost:3000/user')
+  .then(response => {
+    console.log(response.data);
+     // Handle the successful response data here
+     setData(response.data);
+  })
+  .catch(error => {
+    console.error('There was an error:', error.response); // Handle the error here
+  });
+  },[])
+
+
 // const leadData = [
 //     {
 //         name: "lead akshita",
@@ -39,6 +37,7 @@ const UserBoard = ({data}) => {
 //     },
 // ];
 
+
   return (
     <>
     <div class="card" style={{width: "18rem"}}>
@@ -48,8 +47,8 @@ const UserBoard = ({data}) => {
         <ul class="list-group list-group-flush">
         {data.map((item, index) => {
           return(
-          <Link to={`/user/${index+1}`}>
-            <li class="list-group-item">{index+1} {item.name}</li>
+          <Link to={`/user/${item.id}`}>
+            <li class="list-group-item">{index+1} {item.name} {item.email}</li>
             </Link>
           )
         })
