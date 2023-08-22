@@ -11,7 +11,7 @@ const UserDetails = () => {
         setData(response.data);
         console.log(data);
       })
-  },[id])
+  }, [id])
 
   // const sampleUserData = {
   //   name: "Akshita Khaloria",
@@ -19,6 +19,24 @@ const UserDetails = () => {
   //   email: "akshita@gmail.com",
   //   phone: 1234567890
   // }
+
+  const handleDelete = () => {
+
+    const url = `http://localhost:3000/user/${id}`;  // replace with your specific URL and resource ID if needed
+
+    axios.delete(url)
+      .then(response => {
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+    alert("user deleted");
+
+    // axios.delete()
+
+  }
 
   return (
     <div style={{ margin: "30px" }}>
@@ -30,9 +48,10 @@ const UserDetails = () => {
           <p class="card-text">Email : {data.email}</p>
           {/* <p class="card-text">Phone No : {sampleUserData.phone}</p> */}
 
-          {/* <Link to="/user/id/edit" state={{name:data.name, email:data.email}}><button>Edit</button></Link>
-          <Link to="/user/id/delete"><button>Delete</button></Link> */}
-
+          <Link to={`/user/edit/${id}`} state={{ name: data.name, email: data.email }}><button>Edit</button></Link>
+          <Link to="/user">
+            <button onClick={() => { handleDelete(data.id) }}>Delete</button>
+          </Link>
         </div>
       </div>
     </div>

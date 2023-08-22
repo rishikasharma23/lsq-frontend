@@ -3,7 +3,7 @@ import UserBoard from "./UserBoard";
 import LeadBoard from "./LeadBoard";
 import { Link, useLocation } from "react-router-dom";
 
-const Dashboard = () => {
+const DashBoard = () => {
     
     const sampleData =[
         {
@@ -23,7 +23,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <p>Admin Dashboard</p>
+            <p>Admin DashBoard</p>
             <div className="container">
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
@@ -82,4 +82,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default DashBoard;
