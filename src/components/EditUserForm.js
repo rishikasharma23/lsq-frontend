@@ -26,7 +26,9 @@ const EditUserForm = () => {
             .catch(error => {
                 console.error('Error:', error);
             });
-            navigate('/user');
+
+            alert("User Updated");
+            navigate(`/user/${id}`);
     }
 
     return (
@@ -44,4 +46,4 @@ const EditUserForm = () => {
     )
 }
 
-export default EditUserForm
+export default EditUserForm;

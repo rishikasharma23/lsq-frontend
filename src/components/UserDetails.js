@@ -6,10 +6,10 @@ const UserDetails = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     //fetch specific user
+    console.log(id);
     axios.get(`http://localhost:3000/user/${id}`)
       .then(response => {
         setData(response.data);
-        console.log(data);
       })
   }, [id])
 
@@ -52,6 +52,9 @@ const UserDetails = () => {
           <Link to="/user">
             <button onClick={() => { handleDelete(data.id) }}>Delete</button>
           </Link>
+          <Link to="/user">
+            <button>Go Back</button>
+          </Link>
         </div>
       </div>
     </div>
@@ -59,4 +62,4 @@ const UserDetails = () => {
 
 }
 
-export default UserDetails
+export default UserDetails;

@@ -5,17 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const DashBoard = () => {
     
-    const sampleData =[
-        {
-            name:"akshita"
-        },
-        {
-            name:"akshita"
-        },
-        {
-            name:"akshita"
-        }
-    ]
     const location = useLocation();
     
     const isUserActive = location.pathname !== "/lead";
@@ -74,7 +63,7 @@ const DashBoard = () => {
                         role="tabpanel"
                         aria-labelledby="profile-tab"
                     >
-                        <LeadBoard data={sampleData}/>
+                        <LeadBoard/>
                     </div>
                 </div>
             </div>

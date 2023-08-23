@@ -19,25 +19,6 @@ const UserBoard = () => {
   },[])
 
 
-// const leadData = [
-//     {
-//         name: "lead akshita",
-//         age: 22,
-//         dob: 324,
-//     },
-//     {
-//         name: "lead rishika",
-//         age: 22,
-//         dob: 32,
-//     },
-//     {
-//         name: "lead rishika 2",
-//         age: 22,
-//         dob: 43,
-//     },
-// ];
-
-
   return (
     <>
     <div class="card" style={{width: "18rem"}}>
