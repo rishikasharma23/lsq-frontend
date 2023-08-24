@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -10,14 +11,20 @@ const UserForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [yearsOfExperience, setYearsOfExperience] = useState("");
+  const [aadhaarNumber, setAadhaarNumber] = useState("");
   const [dob, setDob] = useState("");
+
+  const array = [true, false, false, false];
+
+  const [phoneNoFlag, experienceFlag, aadhaarFlag, genderFlag] = array;
 
   const sendData = async (e) => {
     e.preventDefault();
     const formBody = {
       name: name,
       email: email,
-      gender: gender,
       dob: dob
     }
 
@@ -63,7 +70,7 @@ const UserForm = () => {
                   onChange={(e) => { setName(e.target.value) }}
                 />
               </div>
-              <div class="form-group mb-4">
+              {/* <div class="form-group mb-4">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">
                   Gender
                 </label>
@@ -77,7 +84,7 @@ const UserForm = () => {
                   <option value="Female">Female</option>
                   <option value="Others">Others</option>
                 </select>
-              </div>
+              </div> */}
               <div class="form-group mb-4">
                 <label for="exampleInputdob">Date of Birth</label>
                 <input
@@ -90,7 +97,139 @@ const UserForm = () => {
                   onChange={(e) => { setDob(e.target.value) }}
                 />
               </div>
-              
+              <div>Optional columns</div>
+
+ 
+
+              {genderFlag &&
+
+              <div class="form-group mb-4">
+
+                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">
+
+                  Gender
+
+                </label>
+
+                <select
+
+                  class="custom-select my-1 mr-sm-2"
+
+                  id="inlineFormCustomSelectPref"
+
+                  onChange={(e) => { setGender(e.target.value) }}
+
+                >
+
+                  <option selected>Choose...</option>
+
+                  <option value="Male">Male</option>
+
+                  <option value="Female">Female</option>
+
+                  <option value="Others">Others</option>
+
+                </select>
+
+              </div>
+
+              }
+
+ 
+
+ 
+
+            {phoneNoFlag &&
+
+              <div class="form-group mb-4">
+
+                <label for="exampleInputEmail1">PhoneNo</label>
+
+                <input
+
+                  type="phone"
+
+                  class="form-control"
+
+                  id="exampleInputEmail1"
+
+                  aria-describedby="emailHelp"
+
+                  placeholder="Enter PhoneNumber"
+
+                  value={mobileNumber}
+
+                  onChange={(e) => { setMobileNumber(e.target.value) }}
+
+                />
+
+              </div>
+
+              }
+
+ 
+
+ 
+
+              {experienceFlag &&
+
+              <div class="form-group mb-4">
+
+                <label for="exampleInputEmail1">experience</label>
+
+                <input
+
+                  type="number"
+
+                  class="form-control"
+
+                  id="exampleInputEmail1"
+
+                  aria-describedby="emailHelp"
+
+                  placeholder="Enter experience"
+
+                  value={yearsOfExperience}
+
+                  onChange={(e) => { setYearsOfExperience(e.target.value) }}
+
+                />
+
+              </div>
+
+              }
+
+ 
+
+ 
+
+              { aadhaarFlag &&
+
+              <div class="form-group mb-4">
+
+                <label for="exampleInputEmail1">aadhaar</label>
+
+                <input
+
+                  type="number"
+
+                  class="form-control"
+
+                  id="exampleInputEmail1"
+
+                  aria-describedby="emailHelp"
+
+                  placeholder="Enter aadhaar"
+
+                  value={aadhaarNumber}
+
+                  onChange={(e) => { setAadhaarNumber(e.target.value) }}
+
+                />
+
+              </div>
+
+              }
               <button type="submit " class="btn btn-primary">
                 Submit
               </button>
